@@ -19,10 +19,12 @@ pub mod network;
 pub mod sensor;
 pub mod hal;
 pub mod telemetry;
+pub mod hardware;
+pub mod tasks;
 
 /// Re-exports for convenience
 pub use space_time::{CellID, Tick, Heading, SafeInterval, Q8_8, Q16_16};
-pub use space_time::reservation::{ReservationTable};
+pub use planner::reservation::{ReservationBitset as ReservationTable};
 pub use planner::{Trajectory, Waypoint, SpatialGraph};
 pub use fsm::{AgentState, AgentContext};
 pub use network::{TransportLayer, CnpManager, CnpBidder};

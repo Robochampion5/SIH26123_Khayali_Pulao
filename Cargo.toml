@@ -18,6 +18,12 @@ nalgebra = "0.32"
 fixed = "1.25"
 rand = "0.8"
 socket2 = "0.5"
+reed-solomon-erasure = "6.0.0"
+bitvec = "1.1.1"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+rppal = "0.22.1"
+io-uring = "0.7.15"
 
 [dev-dependencies]
 criterion = "0.5"

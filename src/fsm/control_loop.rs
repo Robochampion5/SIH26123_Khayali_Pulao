@@ -1,6 +1,6 @@
 use crate::space_time::{CellID, Tick, Heading, SafeInterval};
 use crate::space_time::priority::PriorityState;
-use crate::space_time::reservation::ReservationTable;
+use crate::planner::reservation::ReservationBitset as ReservationTable;
 use crate::planner::graph::SpatialGraph;
 use crate::planner::heading::KinematicState;
 use crate::planner::d_sipp;

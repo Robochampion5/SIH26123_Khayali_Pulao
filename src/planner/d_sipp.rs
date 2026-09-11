@@ -1,5 +1,5 @@
 use crate::space_time::{CellID, Tick, SafeInterval, Heading};
-use crate::space_time::reservation::ReservationTable;
+use crate::planner::reservation::ReservationBitset as ReservationTable;
 use crate::planner::heading::{KinematicState, HeadingLookup, expand_successors, transition_cost, direction_to_heading};
 use crate::planner::graph::SpatialGraph;
 use std::collections::{BinaryHeap, HashMap};
@@ -194,7 +194,7 @@ pub fn validate_trajectory(traj: &Trajectory, graph: &SpatialGraph) -> bool {
 mod tests {
     use super::*;
     use crate::space_time::{SafeInterval, Heading};
-    use crate::space_time::reservation::ReservationTable;
+    use crate::planner::reservation::ReservationBitset as ReservationTable;
     use crate::planner::graph::SpatialGraph;
 
     #[test]

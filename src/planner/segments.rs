@@ -1,5 +1,5 @@
 use crate::space_time::{CellID, Tick};
-use crate::space_time::reservation::{Reservation, ReservationTable};
+use crate::planner::reservation::{Reservation, ReservationBitset as ReservationTable};
 use crate::planner::graph::SpatialGraph;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

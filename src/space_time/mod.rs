@@ -1,5 +1,4 @@
 pub mod priority;
-pub mod reservation;
 
 /// CellID: compact cell address in warehouse grid (max 256×256 = 65,536)
 pub type CellID = u16;
