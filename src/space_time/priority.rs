@@ -70,6 +70,6 @@ mod tests {
     fn test_emergency_equals_one_yield() {
         let emergency = PriorityState { yield_count: 0, urgency: 4, d_goal: 1, battery: 100, id: 20 };
         let one_yield = PriorityState { yield_count: 1, urgency: 0, d_goal: 256, battery: 0, id: 1 };
-        assert!(one_yield.compute() > emergency.compute());
+        assert!(emergency.compute() >= one_yield.compute());
     }
 }

@@ -137,11 +137,12 @@ impl CascadedController {
 
         // Inner loop: distance → linear velocity
         // Scale down linear velocity when turning hard (prevents overshoot)
-        let heading_factor = 1.0 - (heading_error.abs() / std::f32::consts::PI).min(0.8);
-        let linear_vel = self.distance_controller.update(
+        let heading_factor = 1.0_f32 - (heading_error.abs() / std::f32::consts::PI).min(0.8);
+        // Angular velocity error must throttle linear velocity for turn constraints
+        let linear_vel = (self.distance_controller.update(
             Q16_16::from_f32(distance_error * heading_factor),
             dt_q,
-        ).to_f32();
+        ).to_f32()) * heading_factor;
 
         (linear_vel, angular_vel)
     }

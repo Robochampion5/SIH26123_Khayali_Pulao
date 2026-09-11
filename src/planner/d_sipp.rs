@@ -180,7 +180,7 @@ pub fn validate_trajectory(traj: &Trajectory, graph: &SpatialGraph) -> bool {
         let a = traj.waypoints[i];
         let b = traj.waypoints[i + 1];
         let neighbors = graph.neighbors(a.cell);
-        if !neighbors.contains(&b.cell) && a.cell != b.cell {
+        if a.cell != b.cell && !neighbors.contains(&b.cell) {
             return false;
         }
         if a.t_depart > b.t_arrive {

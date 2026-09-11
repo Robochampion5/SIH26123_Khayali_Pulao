@@ -116,7 +116,7 @@ impl TelemetryBroadcaster {
 
     /// Check if a broadcast is due at the given tick
     pub fn should_broadcast(&self, current_tick: Tick) -> bool {
-        self.active && (current_tick >= self.last_broadcast_tick + self.interval_ticks)
+        self.active && (self.interval_ticks == 0 || (current_tick % self.interval_ticks) == 0 || current_tick >= self.last_broadcast_tick + self.interval_ticks)
     }
 
     /// Record a snapshot (and serialize for network send).

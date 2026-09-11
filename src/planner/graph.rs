@@ -73,11 +73,9 @@ impl SpatialGraph {
     }
 
     pub fn manhattan_distance(&self, a: CellID, b: CellID) -> u16 {
-        let ax = a as i32 % self.width as i32;
-        let ay = a as i32 / self.width as i32;
-        let bx = b as i32 % self.width as i32;
-        let by = b as i32 / self.width as i32;
-        ((ax - bx).abs() + (ay - by).abs()) as u16
+        let (ax, ay) = self.coordinate(a);
+        let (bx, by) = self.coordinate(b);
+        ((ax as i32 - bx as i32).abs() + (ay as i32 - by as i32).abs()) as u16
     }
 
     pub fn coordinate(&self, cell: CellID) -> (u16, u16) {
